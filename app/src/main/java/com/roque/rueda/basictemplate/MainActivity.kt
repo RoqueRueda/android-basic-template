@@ -16,10 +16,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import com.roque.rueda.basictemplate.ui.navigation.AppDestinations
 import com.roque.rueda.basictemplate.ui.theme.BasicTemplateTheme
 
 class MainActivity : ComponentActivity() {
@@ -63,15 +62,6 @@ fun BasicTemplateApp() {
             )
         }
     }
-}
-
-enum class AppDestinations(
-    val label: String,
-    val icon: @Composable () -> ImageVector,
-) {
-    HOME(label = "Home", icon = { ImageVector.vectorResource(R.drawable.home_24px) }),
-    FAVORITES("Favorites", icon = { ImageVector.vectorResource(R.drawable.favorite_24px) }),
-    PROFILE("Profile", icon = { ImageVector.vectorResource(R.drawable.account_box_24px) }),
 }
 
 @Composable
