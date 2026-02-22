@@ -9,7 +9,7 @@ enum class AppDestinations(
     val label: String,
     val icon: @Composable () -> ImageVector,
 ) {
-    HOME(label = "Home", icon = { ImageVector.Companion.vectorResource(R.drawable.home_24px) }),
-    FAVORITES(label = "Favorites", icon = { ImageVector.Companion.vectorResource(R.drawable.favorite_24px) }),
-    PROFILE(label = "Profile", icon = { ImageVector.Companion.vectorResource(R.drawable.account_box_24px) }),
+    HOME(label = "Home", icon = { ImageVector.Companion.vectorResource(R.drawable.ic_home) }),
+    FAVORITES(label = "Favorites", icon = { ImageVector.Companion.vectorResource(R.drawable.ic_favorite) }),
+    PROFILE(label = "Profile", icon = { ImageVector.Companion.vectorResource(R.drawable.ic_account_box) }),
 }
