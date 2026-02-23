@@ -34,6 +34,7 @@ import com.roque.rueda.basictemplate.ui.theme.Dimens
 @Composable
 fun HomeScreen(
     uiState: HomeScreenUiState,
+    onEvent: (HomeScreenEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Box(modifier = modifier.fillMaxSize()) {
@@ -73,7 +74,14 @@ fun HomeScreen(
                 )
             },
             expanded = expanded,
-            onExpandedChange = { expanded = it },
+            onExpandedChange = {
+                expanded = it
+                if (it) {
+                    onEvent(HomeScreenEvent.SearchExpanded)
+                } else {
+                    onEvent(HomeScreenEvent.SearchClosed)
+                }
+            },
         ) {
             if (uiState is HomeScreenUiState.SearchResults && uiState.results.isNotEmpty()) {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
@@ -104,6 +112,9 @@ fun HomeScreen(
 @PreviewLightDark
 private fun EmptyHomeScreenPreview() {
     BasicTemplateTheme {
-        HomeScreen(uiState = HomeScreenUiState.Empty)
+        HomeScreen(
+            uiState = HomeScreenUiState.Empty,
+            onEvent = {},
+        )
     }
 }
